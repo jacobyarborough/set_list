@@ -8,7 +8,6 @@ RSpec.describe "songs show page", type: :feature do
     visit("/songs")
 
     click_link("I really like you")
-    expect(page). to have_current_path()
     expect(current_path).to eq("/songs/#{song1.id}")
     expect(page).to have_content("Title: I really like you")
     expect(page).to have_content("Length: #{song1.length}")
