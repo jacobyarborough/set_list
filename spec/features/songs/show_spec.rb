@@ -14,6 +14,6 @@ RSpec.describe "songs show page", type: :feature do
     expect(page).to have_content("Play Count: #{song1.play_count}")
     
     click_link("Back")
-    epexct(current_path).to eq("/songs")
+    expect(current_path).to eq("/songs")
   end 
 end 
