@@ -6,4 +6,8 @@ class Song < ApplicationRecord
   def self.song_count 
     distinct.count
   end 
+
+  def self.return_in_order 
+    order(title: :asc)
+  end 
 end 

@@ -18,5 +18,16 @@ RSpec.describe Song, type: :model do
         expect(Song.song_count).to eq(2)
       end 
     end 
+
+    describe ".return_in_order" do 
+      it "returns all songs listed alphabetically" do 
+        prince = Artist.create!(name: 'Prince')
+        talking_heads = Artist.create!(name: 'Talking Heads')
+        rasperry_beret = prince.songs.create!(title: 'Raspberry Beret', length: 234, play_count: 34)
+        wild_life = talking_heads.songs.create!(title: 'Wild Wild Life', length: 456, play_count: 45)
+
+        expect(Song.return_in_order).to eq([rasperry_beret, wild_life])
+      end 
+    end 
   end 
 end 
