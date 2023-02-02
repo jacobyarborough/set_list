@@ -14,4 +14,8 @@ class Song < ApplicationRecord
   def self.return_shortest(count)
     order(length: :asc).limit(count)
   end 
+
+  def self.get_love_songs 
+    where("lower(title) like ?", "%" + self.sanitize_sql_like("love") + "%").return_in_order
+  end 
 end 
