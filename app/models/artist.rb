@@ -6,4 +6,8 @@ class Artist < ApplicationRecord
   def average_song_length
     songs.average(:length)
   end
+
+  def return_in_order
+    songs.return_in_order
+  end 
 end
