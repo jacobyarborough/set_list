@@ -16,4 +16,8 @@ class Artist < ApplicationRecord
   def get_shortest(count)
     songs.return_shortest(count)
   end 
+
+  def get_played_songs 
+    songs.where("play_count > ? and length > ?", 1, 0).return_in_order
+  end 
 end
