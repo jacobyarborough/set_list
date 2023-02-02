@@ -42,5 +42,18 @@ RSpec.describe Artist, type: :model do
         expect(prince.get_shortest(2)).to eq([song6, song1])
       end 
     end  
+
+    describe "#get_played_songs" do 
+      it "returns songs where the play count > 1 and length > 0" do 
+        prince = Artist.create!(name: 'Prince')
+
+        song1 = prince.songs.create!(title: 'Raspberry Beret', length: 345, play_count: 0)
+        song2 = prince.songs.create!(title: 'Purple Rain', length: 524, play_count: 19)
+        song5 = prince.songs.create!(title: '26', length: 940, play_count: 150000)
+        song6 = prince.songs.create!(title: 'Vagabond', length: 0, play_count: 120000)
+
+        expect(prince.get_played_songs).to eq([song5, song2])
+      end 
+    end 
   end 
 end 

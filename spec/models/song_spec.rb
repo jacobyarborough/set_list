@@ -47,4 +47,7 @@ RSpec.describe Song, type: :model do
       end 
     end 
   end 
+
+  describe "instance methods" do 
+  end 
 end 
