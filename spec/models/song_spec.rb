@@ -46,6 +46,23 @@ RSpec.describe Song, type: :model do
         expect(Song.return_shortest(3)).to eq([song6, song1, song2])
       end 
     end 
+
+    describe ".get_love_songs" do 
+      it "returns a list of songs in alphabetical order that contain the word love in the title" do 
+        prince = Artist.create!(name: 'Prince')
+        rtj = Artist.create!(name: 'Run The Jewels')
+        caamp = Artist.create!(name: 'Caamp')
+
+        song1 = prince.songs.create!(title: 'Raspberry Beret', length: 345, play_count: 34)
+        song2 = prince.songs.create!(title: 'Purple Love', length: 524, play_count: 19)
+        song3 = rtj.songs.create!(title: 'Legend Has It', length: 2301, play_count: 2300000)
+        song4 = rtj.songs.create!(title: 'Talk to Love', length: 2301, play_count: 2300000)
+        song5 = caamp.songs.create!(title: '26', length: 940, play_count: 150000)
+        song6 = caamp.songs.create!(title: 'Vagabond', length: 240, play_count: 120000)
+
+        expect(Song.get_love_songs).to eq([song2, song4])
+      end 
+    end 
   end 
 
   describe "instance methods" do 
