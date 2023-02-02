@@ -29,5 +29,18 @@ RSpec.describe Artist, type: :model do
         expect(talking_heads.return_in_order).to eq([she_was, wild_life])
       end 
     end 
+
+    describe "#get_shortest" do 
+      it "returns the x shortest songs for an artist" do 
+        prince = Artist.create!(name: 'Prince')
+
+        song1 = prince.songs.create!(title: 'Raspberry Beret', length: 345, play_count: 34)
+        song2 = prince.songs.create!(title: 'Purple Rain', length: 524, play_count: 19)
+        song5 = prince.songs.create!(title: '26', length: 940, play_count: 150000)
+        song6 = prince.songs.create!(title: 'Vagabond', length: 240, play_count: 120000)
+
+        expect(prince.get_shortest(2)).to eq([song6, song1])
+      end 
+    end  
   end 
 end 
