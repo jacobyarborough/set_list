@@ -10,4 +10,8 @@ class Song < ApplicationRecord
   def self.return_in_order 
     order(title: :asc)
   end 
+
+  def self.return_shortest(count)
+    order(length: :asc).limit(count)
+  end 
 end 
