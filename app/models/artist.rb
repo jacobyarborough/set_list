@@ -11,4 +11,9 @@ class Artist < ApplicationRecord
   def return_in_order
     songs.return_in_order
   end 
+
+  # wouldnt actually need this method, just reviewing
+  def get_shortest(count)
+    songs.return_shortest(count)
+  end 
 end
