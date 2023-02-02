@@ -15,7 +15,7 @@ RSpec.describe Song, type: :model do
         rasperry_beret = prince.songs.create!(title: 'Raspberry Beret', length: 234, play_count: 34)
         wild_life = talking_heads.songs.create!(title: 'Wild Wild Life', length: 456, play_count: 45)
 
-        expect(Artist.song_count).to eq(2)
+        expect(Song.song_count).to eq(2)
       end 
     end 
   end 
