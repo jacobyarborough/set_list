@@ -8,7 +8,7 @@ RSpec.describe "Artist Index Page" do
 
     visit("/artists") 
 
-    expect(path).to eq("/artists")
+    expect(current_path).to eq("/artists")
     expect(page).to have_content("All Artists")
     expect(page).to have_content(prince.name)
     expect(page).to have_content(rtj.name)
