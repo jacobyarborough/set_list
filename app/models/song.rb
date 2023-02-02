@@ -18,4 +18,8 @@ class Song < ApplicationRecord
   def self.get_love_songs 
     where("lower(title) like ?", "%" + self.sanitize_sql_like("love") + "%").return_in_order
   end 
+
+  def self.top_three(length)
+    where("length > ? and updated_at > ?", length, (Time.now.midnight - 3.days)).order(play_count: :desc).limit(3) 
+  end 
 end 
