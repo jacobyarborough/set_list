@@ -19,5 +19,15 @@ RSpec.describe Artist, type: :model do
         expect(talking_heads.average_song_length).to eq(345)
       end 
     end 
+
+    describe "#return_in_order" do 
+      it "returns an artists songs in alphabetical order" do 
+        talking_heads = Artist.create!(name: 'Talking Heads')
+        she_was = talking_heads.songs.create!(title: 'And She Was', length: 234, play_count: 34)
+        wild_life = talking_heads.songs.create!(title: 'Wild Wild Life', length: 456, play_count: 45)
+        
+        expect(talking_heads.return_in_order).to eq([she_was, wild_life])
+      end 
+    end 
   end 
 end 
