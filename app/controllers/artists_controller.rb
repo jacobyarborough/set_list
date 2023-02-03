@@ -9,4 +9,9 @@ class ArtistsController < ApplicationController
 
   def new
   end
+
+  def create
+    Artist.create!(name: params[:name])
+    redirect_to "/artists"
+  end
 end 
