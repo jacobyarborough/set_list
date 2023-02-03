@@ -13,5 +13,8 @@ RSpec.describe "Artist Index Page" do, type: :feature
     expect(page).to have_content(prince.name)
     expect(page).to have_content(rtj.name)
     expect(page).to have_content(caamp.name)
+
+    click_link("Home")
+    expect(page).to have_current_path("/")
   end  
 end 

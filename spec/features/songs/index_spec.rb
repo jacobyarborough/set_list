@@ -13,5 +13,8 @@ RSpec.describe "songs index page", type: :feature do
     expect(page).to have_content(song2.title)
     expect(page).to have_content("Play Count: #{song2.play_count}")
     expect(page).to have_content("Set List Songs")
+
+    click_link("Home")
+    expect(page).to have_current_path("/")
   end 
 end 

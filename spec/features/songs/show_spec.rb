@@ -16,5 +16,8 @@ RSpec.describe "songs show page", type: :feature do
     
     click_link("Back")
     expect(current_path).to eq("/songs")
+
+    click_link("Home")
+    expect(page).to have_current_path("/")
   end 
 end 
