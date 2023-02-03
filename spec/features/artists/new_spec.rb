@@ -6,7 +6,7 @@ RSpec.describe "New Artist Page", type: :feature do
     click_link "Add New Artist"
     expect(page).to have_current_path("/artists/new")
 
-    fill_in("Artist Name", with: "Beach Boys")
+    fill_in("Name", with: "Beach Boys")
     click_on("Create Artist")
     expect(page).to have_current_path("/artists")
     expect(page).to have_content("Beach Boys")
