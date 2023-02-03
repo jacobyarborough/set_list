@@ -17,4 +17,19 @@ RSpec.describe "Artist Index Page", type: :feature do
     click_link("Home")
     expect(page).to have_current_path("/")
   end  
+
+  it "has a delete button next to each artist" do 
+    prince = Artist.create!(name: 'Prince')
+    rtj = Artist.create!(name: 'Run The Jewels')
+    caamp = Artist.create!(name: 'Caamp')
+
+    visit "/artists"
+
+    within("#artist#{prince.id}") do 
+      click_on("Delete")
+    end 
+
+    expect(page).to have_current_path("/artists")
+    expect(page).to_not have_content(prince.name)
+  end 
 end 
