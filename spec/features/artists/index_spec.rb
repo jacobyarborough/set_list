@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.describe "Artist Index Page" do
+RSpec.describe "Artist Index Page" do, type: :feature
   it "displays all artist and artist info" do 
     prince = Artist.create!(name: 'Prince')
     rtj = Artist.create!(name: 'Run The Jewels')
