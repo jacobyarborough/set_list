@@ -11,4 +11,5 @@ Rails.application.routes.draw do
   get "/artists", to: "artists#index"
   get "/artists/new", to: "artists#new"
   get "/artists/:id", to: "artists#show"
+  post "/artists", to: "artists#create"
 end
