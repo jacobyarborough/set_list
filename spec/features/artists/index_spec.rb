@@ -32,4 +32,17 @@ RSpec.describe "Artist Index Page", type: :feature do
     expect(page).to have_current_path("/artists")
     expect(page).to_not have_content(prince.name)
   end 
+
+  it "has an edit button next to each artist" do 
+    prince = Artist.create!(name: 'Prince')
+    rtj = Artist.create!(name: 'Run The Jewels')
+    caamp = Artist.create!(name: 'Caamp')
+
+    visit "/artists" 
+
+    within("#artist#{rtj.id}") do 
+      click_on("Edit")
+      expect(page).to have_current_path("/artists/#{rtj.id}/edit")
+    end 
+  end 
 end 
