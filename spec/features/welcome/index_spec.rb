@@ -12,7 +12,7 @@ RSpec.describe "Welcome Page" do, type: :feature
     click_link("Home")
     expect(page).to have_current_path("/")
 
-    click_link("songs")
+    click_link("Songs")
     expect(page). to have_current_path("/songs")
     click_link("Home")
     expect(page).to have_current_path("/")
