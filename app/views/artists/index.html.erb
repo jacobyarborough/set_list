@@ -1,7 +1,10 @@
 <h1>All Artists</h1>
 
 <% @artists.each do |artist| %>
-  <a href="/artists/<%= artist.id %>"><%= artist.name %></a></br>
+  <div id="artist<%= artist.id %>">
+    <a href="/artists/<%= artist.id %>"><%= artist.name %></a></br>
+    <%= button_to "Delete", "/artists/#{artist.id}", method: :delete %>
+  </div>
 <% end %>
 
 <h3><a href="/artists/new">Add New Artist</a></h3>
