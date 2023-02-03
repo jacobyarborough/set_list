@@ -1,11 +1,12 @@
 require "rails_helper" 
 
-RSpec.describe "Artists show page" do, type: :feature
+RSpec.describe "Artist Show Page", type: :feature do
   it "shows a particular artists info" do 
     prince = Artist.create!(name: 'Prince')
 
     visit "/artists/#{prince.id}"
 
+    expect(page).to have_content("Artist Info")
     expect(page).to have_current_path("/artists/#{prince.id}")
     expect(page).to have_content(prince.name)
 

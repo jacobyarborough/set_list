@@ -1,11 +1,11 @@
-require "rails_helper" do 
+require "rails_helper"
 
-RSpec.describe "Welcome Page" do, type: :feature 
+RSpec.describe "Welcome Page", type: :feature do
   it "displays a welcome message" do 
     visit "/"
 
     expect(current_path).to eq("/")
-    expect(page).to display("Welcome to the SetList App!")
+    expect(page).to have_content("Welcome to the SetList App!")
 
     click_link("Artists")
     expect(page). to have_current_path("/artists")
