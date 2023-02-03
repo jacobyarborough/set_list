@@ -9,4 +9,5 @@ Rails.application.routes.draw do
   get "/songs/:id", to: "songs#show"
 
   get "/artists", to: "artists#index"
+  get "/artists/:id", to: "artists/show"
 end
