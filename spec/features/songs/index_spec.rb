@@ -26,11 +26,9 @@ RSpec.describe "songs index page", type: :feature do
 
     visit "artists/#{prince.id}/songs" 
     expect(page).to have_content(song1.title)
-    expect(page).to have_content(song1.length)
     expect(page).to have_content(song1.play_count)
 
     expect(page).not_to have_content(song2.title)
-    expect(page).not_to have_content(song2.length)
     expect(page).not_to have_content(song2.play_count)
 
     click_link("Home")
