@@ -15,4 +15,6 @@ Rails.application.routes.draw do
   post "/artists", to: "artists#create"
   patch "/artists/:id", to: "artists#update"
   delete "/artists/:id", to: "artists#destroy"
+
+  get "artists/:id/songs/new", to: "songs#new"
 end
