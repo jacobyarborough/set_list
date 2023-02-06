@@ -17,4 +17,5 @@ Rails.application.routes.draw do
   delete "/artists/:id", to: "artists#destroy"
 
   get "artists/:id/songs/new", to: "songs#new"
+  post "artists/:id/songs", to: "songs#create"
 end
