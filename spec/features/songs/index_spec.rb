@@ -17,4 +17,23 @@ RSpec.describe "songs index page", type: :feature do
     click_link("Home")
     expect(page).to have_current_path("/")
   end 
+
+  it "can show only a particular artist's songs" do 
+    prince = Artist.create!(name: 'Prince')
+    rtj = Artist.create!(name: 'Run The Jewels') 
+    song1 = prince.songs.create!(title: "hello sun", length: 598, play_count: 5897)
+    song2 = rtj.songs.create!(title: "hello moon", length: 547, play_count: 547)
+
+    visit "artists/#{prince.id}/songs" 
+    expect(page).to have_content(song1.title)
+    expect(page).to have_content(song1.length)
+    expect(page).to have_content(song1.play_count)
+
+    expect(page).not_to have_content(song2.title)
+    expect(page).not_to have_content(song2.length)
+    expect(page).not_to have_content(song2.play_count)
+
+    click_link("Home")
+    expect(page).to have_current_path("/")
+  end 
 end 
